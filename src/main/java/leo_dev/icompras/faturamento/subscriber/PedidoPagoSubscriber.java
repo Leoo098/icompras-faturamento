@@ -1,7 +1,7 @@
 package leo_dev.icompras.faturamento.subscriber;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import leo_dev.icompras.faturamento.GeradorNotaFiscalService;
+import leo_dev.icompras.faturamento.service.GeradorNotaFiscalService;
 import leo_dev.icompras.faturamento.mapper.PedidoMapper;
 import leo_dev.icompras.faturamento.model.Pedido;
 import leo_dev.icompras.faturamento.subscriber.representation.DetalhePedidoRepresentation;
