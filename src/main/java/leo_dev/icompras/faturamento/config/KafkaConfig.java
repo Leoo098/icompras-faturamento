@@ -33,6 +33,17 @@ public class KafkaConfig {
     }
 
     @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListener(
+            ConsumerFactory<String, String> consumerFactory
+    ){
+        ConcurrentKafkaListenerContainerFactory<String, String> listener =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        listener.setConsumerFactory(consumerFactory);
+        listener.setConsumerFactory(consumerFactory);
+        return listener;
+    }
+
+    @Bean
     public ProducerFactory<String, String> producerFactory(){
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServerUrl);
@@ -45,17 +56,6 @@ public class KafkaConfig {
     public KafkaTemplate<String, String> kafkaTemplate(
             ProducerFactory<String, String> producerFactory){
         return new KafkaTemplate<>(producerFactory);
-    }
-
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListener(
-            ConsumerFactory<String, String> consumerFactory
-    ){
-        ConcurrentKafkaListenerContainerFactory<String, String> listener =
-                new ConcurrentKafkaListenerContainerFactory<>();
-        listener.setConsumerFactory(consumerFactory);
-        listener.setConsumerFactory(consumerFactory);
-        return listener;
     }
 
     @Bean
